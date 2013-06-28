@@ -5,7 +5,6 @@ $(document).ready(function() {
 				type: 'POST', 
 				url: '/player_hit'
 			}).done(function(msg) {
-				alert(msg);
 				$("game").replaceWith(msg);
 			});
 			return false;
