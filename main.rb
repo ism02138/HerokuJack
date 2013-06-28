@@ -21,7 +21,7 @@ end
 
 post '/new_player' do 
 	session[:player_name] = params[:player_name]
-	redirect '/play_game'
+	redirect '/bet'
 end
 
 get '/bet' do
@@ -64,7 +64,7 @@ post '/player_hit' do
 		session[:show_player_buttons] = false
 		redirect '/game_over'
 	else
-		erb :play_game
+		erb :play_game, layout: false
 	end
 end
 
@@ -74,6 +74,7 @@ post '/player_stay' do
 end
 
 get '/computer' do
+	session[:show_player_buttons] = false
 	computer_sum = hand_sum(session[:computer_hand])
 	if computer_sum.select { |total| total < 22 && total >= 17 }.max == nil && computer_sum.min < 17
 		session[:show_computer_buttons] = true

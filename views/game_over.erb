@@ -6,15 +6,22 @@
 <div class="well">
 	<p><%= session[:computer_name] %>'s cards:</p>
 
-	<% session[:computer_hand].each do |card| %>
-		<%= return_card_picture(card) %>
-	<% end %>
+	<div class="row">
+		<% session[:computer_hand].each do |card| %>
+			<div class="span2">
+				<%= return_card_picture(card) %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
 <div class="well">
 	<p><%= session[:player_name] %>'s cards:</p>
-
-	<% session[:player_hand].each do |card| %>
-		<img src="/images/cards/<%= "#{card[0]}_#{card[1]}"%>.jpg">
-	<% end %>
+	<div class="row">
+		<% session[:player_hand].each do |card| %>
+			<div class="span2">
+				<%= return_card_picture(card) %>
+			</div>
+		<% end %>
+	</div>
 </div>
